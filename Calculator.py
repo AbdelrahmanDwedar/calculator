@@ -9,40 +9,31 @@ window.resizable(width=False, height=False)
 current_value = ""
 screen_contects = StringVar()
 
-screen = Entry(window,width=25,font=('Time',16,'bold'),bg='powder blue',textvariable = x)
-screen.place(x=25,y=30)
-
+# Getting the current value and set it to the screen_contesct
 def setNumber(num):
     global current_value
     current_value += str(num)
     screen_contects.set(current_value)
 
-btn8 = Button(text='8',width=8,command = lambda:fnSet(8))
-btn8.place(x=100,y=75)
-
+# * out putting the result on the screen_contents 
+# * sets that out put to be the new current_value 
 def getResult():
     result = str(eval(current_value))
     # current_value = result
     screen_contects.set(result)
 
-btn4 = Button(text='4',width=8,command = lambda:fnSet(4))
-btn4.place(x=25,y=120)
-
+# clears the screen_contects by setting it it " "
 def clear():
     global current_value
     current_value = ""
     screen_contects.set(current_value)
 
-btn6 = Button(text='6',width=8,command = lambda:fnSet(6))
-btn6.place(x=175,y=120)
-
+# ! setup the screen (results area) 
 screen = Entry(window, width = 19, font = ('Time', 16, 'bold'), textvariable = screen_contects, state='disabled')
 screen.place(x = 25, y = 30)
 screen.config(bg="#232323", border=0)
 
-btn2 = Button(text='2',width=8,command = lambda:fnSet(2))
-btn2.place(x=100,y=165)
-
+# ! setup the Numbers buttons 
 btnNumber0 = Button(text = '0', width = 7, command = lambda:setNumber(0), border=0)
 btnNumber0.place(x = 234, y = 200)
 
